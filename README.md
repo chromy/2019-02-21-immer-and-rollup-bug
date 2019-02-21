@@ -1,6 +1,19 @@
 Bundled code has different behavior to unbundled code
 =====================================================
 
+To reproduce the issue you should be able to run:
+
+
+```
+$ git clone https://github.com/chromy/2019-02-21-immer-and-rollup-bug.git
+$ cd 2019-02-21-immer-and-rollup-bug
+$ ./node_modules/.bin/rollup index.js --format iife -o bundle.js -c rollup.config.js
+$ node index.js
+$ node bundle.js
+```
+
+## Details
+
 Hi, I'm running into problems bundling
 [immer](https://github.com/mweststrate/immer)
 with `rollup`, `rollup-plugin-commonjs`, and, `rollup-plugin-node-resolve`.
@@ -49,17 +62,5 @@ undefined
 It seems that the bundled version is getting the `default` export somehow rather
 than the whole module.
 
-# Reproducing
-
-To reproduce the issue you should be able to run:
-
-
-```
-$ git clone https://github.com/chromy/2019-02-21-immer-and-rollup-bug.git
-$ cd 2019-02-21-immer-and-rollup-bug
-$ ./node_modules/.bin/rollup index.js --format iife -o bundle.js -c rollup.config.js
-$ node index.js
-$ node bundle.js
-```
 
 Thanks for your help!
