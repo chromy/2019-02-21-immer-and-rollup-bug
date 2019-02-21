@@ -38,7 +38,9 @@ $ node index.js
   nothing: Symbol(immer-nothing),
   immerable: Symbol(immer-draftable) }
 [Function: bound applyPatches$$1]
+```
 
+```
 $ node bundle.js
 [Function: bound produce]
 undefined
@@ -46,5 +48,18 @@ undefined
 
 It seems that the bundled version is getting the `default` export somehow rather
 than the whole module.
+
+# Reproducing
+
+To reproduce the issue you should be able to run:
+
+
+```
+$ git clone https://github.com/chromy/2019-02-21-immer-and-rollup-bug.git
+$ cd 2019-02-21-immer-and-rollup-bug
+$ ./node_modules/.bin/rollup index.js --format iife -o bundle.js -c rollup.config.js
+$ node index.js
+$ node bundle.js
+```
 
 Thanks for your help!
