@@ -12,6 +12,9 @@ $ node index.js
 $ node bundle.js
 ```
 
+The output of the last two commands differ when they should be the same.
+
+
 ## Details
 
 Hi, I'm running into problems bundling
